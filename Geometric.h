@@ -1,14 +1,13 @@
-//
-// Created by Aliaksandra Pashko on 9/28/18.
-//
+#pragma once
 
-#ifndef LAB2_GEOMETRIC_H
-#define LAB2_GEOMETRIC_H
+#include "Distribution.h"
 
+class Geometric : public Distribution{
+public:
+    double p;
 
-class Geometric {
+    Geometric(double);
 
+    std::vector<int> generate() override;
 };
 
-
-#endif //LAB2_GEOMETRIC_H
