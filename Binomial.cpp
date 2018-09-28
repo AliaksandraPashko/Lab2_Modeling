@@ -8,14 +8,12 @@ std::vector<int> Binomial::generate()
     create_sequency(32771);
     std::vector<int> result_sequence;
 
-    double q;
-    double c;
+    double q = 1 - p;
+    double c = p/q;
 
     int x;
-    for(double& r : sequence)
+    for(double r : sequence)
     {
-        q = 1 - p;
-        c = p/q;
         p = pow(q, m);
         x = 0;
         do

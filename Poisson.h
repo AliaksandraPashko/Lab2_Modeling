@@ -8,7 +8,7 @@ public:
 
     Poisson(int);
 
-    std::vector<int> generate();
+    std::vector<int> generate() override;
 
 };
 

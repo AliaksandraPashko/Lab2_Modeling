@@ -11,7 +11,7 @@ std::vector<int> Poisson::generate()
     int x = 0;
     double p;
 
-    for(double& r : sequence)
+    for(double r : sequence)
     {
         p = exp(-lambda);
         x = 0;

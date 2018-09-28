@@ -2,14 +2,13 @@
 
 #include "Distribution.h"
 
-class Binomial : public Distribution {
+class NegativeBinomial : public Distribution {
 public:
-    int m;
+    int r;
     double p;
 
-    Binomial(int, double);
+    NegativeBinomial(int, double);
 
     std::vector<int> generate() override;
-
 };
 

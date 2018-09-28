@@ -1,20 +1,27 @@
 #include <iostream>
 #include "Poisson.h"
 #include "Binomial.h"
+#include "NegativeBinomial.h"
 
+template <class Distribution>
+void print_generated_values(Distribution distribution)
+{
+    std::vector<int> result = distribution.generate();
+    std::copy(result.begin(), result.end(), std::ostream_iterator<int>(std::cout, " "));
 
+    std::cout << std::endl;
+}
 
 int main() {
 
     Poisson poisson_distribution(1);
-    std::vector<int> poisson_result = poisson_distribution.generate();
-    std::copy(poisson_result.begin(), poisson_result.end(), std::ostream_iterator<int>(std::cout, " "));
-
-    std::cout << std::endl;
+//    print_generated_values(poisson_distribution);
 
     Binomial binomial_distribution(5, 0.75);
-    std::vector<int> binomial_result = poisson_distribution.generate();
-    std::copy(binomial_result.begin(), binomial_result.end(), std::ostream_iterator<int>(std::cout, " "));
+//    print_generated_values(binomial_distribution);
+
+    NegativeBinomial negativeBinomial_distribution(5, 0.9);
+//    print_generated_values(negativeBinomial_distribution);
 
     return 0;
 }
