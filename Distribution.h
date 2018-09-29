@@ -10,4 +10,6 @@ public:
     Distribution();
 
     std::vector<double> create_sequency(long);
+
+    virtual std::vector<int> generate() = 0;
 };

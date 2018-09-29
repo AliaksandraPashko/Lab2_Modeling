@@ -11,16 +11,16 @@ std::vector<int> Poisson::generate()
     int x = 0;
     double p;
 
-    for(double r : sequence)
+    for(double item : sequence)
     {
         p = exp(-lambda);
         x = 0;
         do
         {
-            r -= p;
+            item -= p;
             p = p*lambda/ ++x;
         }
-        while(r > 0);
+        while(item > 0);
         result_sequence.push_back(x-1);
     }
     return result_sequence;

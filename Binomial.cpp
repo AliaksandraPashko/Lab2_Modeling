@@ -12,16 +12,16 @@ std::vector<int> Binomial::generate()
     double c = p/q;
 
     int x;
-    for(double r : sequence)
+    for(double item : sequence)
     {
         p = pow(q, m);
         x = 0;
         do
         {
-            r -= p;
+            item -= p;
             p = p*c*(m + 1 - x)/ ++x;
         }
-        while(r > 0);
+        while(item > 0);
         result_sequence.push_back(x-1);
     }
 
