@@ -8,6 +8,9 @@ public:
 
     Geometric(double);
 
-    std::vector<int> generate() override;
+    std::vector<double> generate() override;
+
+    double expected_value() override;
+    double variance() override;
 };
 

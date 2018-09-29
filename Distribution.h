@@ -11,5 +11,7 @@ public:
 
     std::vector<double> create_sequency(long);
 
-    virtual std::vector<int> generate() = 0;
+    virtual std::vector<double> generate() = 0;
+    virtual double expected_value() = 0;
+    virtual double variance() = 0;
 };

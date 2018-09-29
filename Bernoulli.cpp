@@ -2,12 +2,12 @@
 
 Bernoulli::Bernoulli(double p_) : p(p_){}
 
-std::vector<int> Bernoulli::generate()
+std::vector<double> Bernoulli::generate()
 {
     create_sequency(32771);
-    std::vector<int> result_sequence;
+    std::vector<double> result_sequence;
 
-    int x;
+    double x;
     for(double item : sequence)
     {
         x = (item <= p) ? 1 : 0;
@@ -15,4 +15,14 @@ std::vector<int> Bernoulli::generate()
     }
 
     return result_sequence;
+}
+
+double Bernoulli::expected_value()
+{
+    return p;
+}
+
+double Bernoulli::variance()
+{
+    return p*(1 - p);
 }

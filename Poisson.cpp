@@ -3,12 +3,12 @@
 
 Poisson ::Poisson(int lambda_) : lambda(lambda_) {}
 
-std::vector<int> Poisson::generate()
+std::vector<double> Poisson::generate()
 {
     create_sequency(32771);
-    std::vector<int> result_sequence;
+    std::vector<double> result_sequence;
 
-    int x = 0;
+    double x = 0;
     double p;
 
     for(double item : sequence)
@@ -24,4 +24,14 @@ std::vector<int> Poisson::generate()
         result_sequence.push_back(x-1);
     }
     return result_sequence;
+}
+
+double Poisson::expected_value()
+{
+    return lambda;
+}
+
+double Poisson::variance()
+{
+    return lambda;
 }
