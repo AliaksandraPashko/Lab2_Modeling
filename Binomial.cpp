@@ -1,5 +1,11 @@
+#define MAX 100
+
 #include <cmath>
 #include "Binomial.h"
+
+
+int combination(int, int);
+
 
 Binomial::Binomial(int m_, double p_) : m(m_), p(p_) {}
 
@@ -38,4 +44,33 @@ double Binomial::expected_value()
 double Binomial::variance()
 {
     return m * p * (1-p);
+}
+
+double Binomial::distribution_function(double k)
+{
+    return combination(k, m) * pow(p, k) * pow((1-p), k);
+}
+
+
+int combination(int m, int n)
+{
+    int mat[MAX][MAX];
+    int i, j;
+    if (n > m) return 0;
+    if( (n == 0) || (m == n) ) return 1;
+    for(j = 0; j < n; ++j)
+    {
+        mat[0][j] = 1;
+        if (j == 0)
+        {
+            for (i = 1; i<= m - n; ++i)
+                mat[i][j] = i + 1;
+        }
+        else
+        {
+            for (i = 1; i<= m - n; ++i)
+                mat[i][j] = mat[i - 1][j] + mat[i][j - 1];
+        }
+    }
+    return (mat[m - n][n - 1]);
 }

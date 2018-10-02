@@ -1,6 +1,8 @@
 #include <cmath>
 #include "NegativeBinomial.h"
 
+#include <boost/math/special_functions/gamma.hpp>
+
 NegativeBinomial::NegativeBinomial(int r_, double p_) : r(r_), p(p_){}
 
 std::vector<double> NegativeBinomial::generate()
@@ -37,4 +39,9 @@ double NegativeBinomial::expected_value()
 double NegativeBinomial::variance()
 {
     return r * (1-p)/(p*p);
+}
+
+double NegativeBinomial::distribution_function(double k)
+{
+    return boost::math::ibetac(r, k+1, 1-p);
 }

@@ -27,3 +27,8 @@ double Geometric::variance()
 {
     return (1-p)/(p*p);
 }
+
+double Geometric::distribution_function(double k)
+{
+    return 1-pow(1-p,k);
+}

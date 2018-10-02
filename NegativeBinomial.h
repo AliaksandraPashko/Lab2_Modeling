@@ -13,5 +13,6 @@ public:
 
     double expected_value() override;
     double variance() override;
+    double distribution_function(double) override;
 };
 

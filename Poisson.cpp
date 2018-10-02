@@ -1,6 +1,9 @@
 #include <cmath>
 #include "Poisson.h"
 
+#include <boost/math/special_functions/gamma.hpp>
+#include <boost/math/special_functions/factorials.hpp>
+
 Poisson ::Poisson(int lambda_) : lambda(lambda_) {}
 
 std::vector<double> Poisson::generate()
@@ -34,4 +37,9 @@ double Poisson::expected_value()
 double Poisson::variance()
 {
     return lambda;
+}
+
+double Poisson::distribution_function(double k)
+{
+    return boost::math::gamma_p(k+1, lambda)/boost::math::factorial<double>(k);
 }

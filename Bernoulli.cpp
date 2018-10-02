@@ -26,3 +26,13 @@ double Bernoulli::variance()
 {
     return p*(1 - p);
 }
+
+double Bernoulli::distribution_function(double k)
+{
+    if(k < 0)
+        return 0;
+    if(k >= 1)
+        return 1;
+    else
+        return 1-p;
+}
